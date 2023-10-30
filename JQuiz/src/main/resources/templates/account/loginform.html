@@ -3,15 +3,23 @@
 <head th:replace="~{layout/common::head('Login')}">
 </head>
 <body>
-<div class="container">
-    <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="ID">
-        <label for="floatingInput">ID</label>
-    </div>
-    <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-    </div>
+<nav th:replace="~{layout/common::nav('loginform')}"></nav>
+<div class="container"
+     style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80vh;">
+    <form action="/account/loginproc" method="post" th:obeject="${accountReq}">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="id" placeholder="ID">
+            <label for="id">ID</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            <label for="password">Password</label>
+        </div>
+        <div class="col mt-3 d-flex justify-content-end">
+            <input type="submit" class="btn btn-dark" value="로그인"/>
+            <a th:href="@{#}" class="btn btn-dark">회원가입</a>
+        </div>
+    </form>
 </div>
 </body>
 </html>
