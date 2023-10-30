@@ -12,4 +12,9 @@ public class QuizController {
     public String mainView(){
         return "quiz/main";
     }
+
+    @GetMapping("list")
+    public String list(){
+        return "quiz/list";
+    }
 }
